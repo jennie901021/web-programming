@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布袋旅遊趣</title>
+    <link rel="icon" href="anchor.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+    <style>
+        @font-face {
+            font-family: 'setofont';
+            src: url('setofont.ttf') format("truetype");
+        }
+
+        body {
+            background-image: url("網設背景.jpg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            background-color: #464646;
+        }
+
+        .menu {
+            width: 100%;
+            height: 50px;
+            position: relative;
+            background-color: white;
+        }
+
+        .menuimg img{
+            margin-left: 5px;
+            padding: 0px 2px;
+            float: left;
+            height: 45px;
+        }
+
+        .menutitle {
+            margin-left: 2px;
+            padding: 5px 2px;
+            font-size: 35px;
+            font-family: "setofont";
+            color: black;
+            float: left;
+            text-decoration: none;
+        }
+
+        .sel {
+            margin: 0px 7px;
+            padding: 5px 2px;
+            font-size: 35px;
+            font-family: "setofont";
+            color: black;
+            float: right;
+            text-decoration: none;
+        }
+
+        .sel:hover{
+            transform: scale(1.1);
+        }
+
+        .cat {
+            position: absolute;
+            width: 20%;
+            bottom: 0px;
+            right: 0px;
+        }
+
+        .agency {
+            margin: 30px;
+            position: absolute;
+            width: 75%;
+            height: 80%;
+            background-color: aliceblue;
+            overflow: auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        .bgimg {
+            margin: 100px;
+            position: fixed;
+            height: 50%;
+            opacity: 10%;
+        }
+
+        ul {
+            margin: 10px;
+            padding-left: 15px;
+            list-style-type: disc;
+            font-size: 24px;
+            font-family: "setofont";
+        }
+
+        .agency ul ul {
+            margin: 5px;
+            padding-left: 15px;
+            list-style-type: circle;
+        }
+
+        .agency ul li {
+            margin-top: 10px;
+        }
+
+        .agency p {
+            margin: 10px;
+            font-size: 35px;
+            font-family: "setofont";
+        }
+
+        .agency a{
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <a class="menuimg" href="布袋旅遊趣.html"><img src="anchor.png"></a>
+        <a class="menutitle" href="布袋旅遊趣.html">布袋旅遊趣</a>
+        <a class="sel">影片</a>
+        <a class="sel" href="公家機關.html">公家機關/診所</a>
+        <a class="sel" href="https://www.cwb.gov.tw/V8/C/L/Port/Port.html?PID=H007" target="_blank">天氣</a>
+    </div>
+    <img class="cat" src="導遊1.png">
+
+    <div class="agency">
+        <img class="bgimg" src="government.png">
+        <div>
+            <p><b>公家機關</b></p>
+            <ul>
+                <li>布袋鎮公所</li>
+                <ul>
+                    <li><a href="https://www.google.com.tw/maps/place/%E5%B8%83%E8%A2%8B%E9%8E%AE%E5%85%AC%E6%89%80/@23.3781104,120.1669185,19.53z/data=!4m13!1m7!3m6!1s0x346e82868b5f3725:0xeaa1af44f27399ce!2zNjI15ZiJ576p57ij5biD6KKL6Y6u6Ieq55Sx6LevMuiZnw!3b1!8m2!3d23.3781487!4d120.167094!3m4!1s0x346e8286f21545b3:0xcdc6b6b35f40e338!8m2!3d23.3781734!4d120.1669564?hl=zh-TW&authuser=0" target="_blank">地址:布袋鎮自由路2號</a></li>
+                    <li>電話:(05)347-5979</li>
+                </ul>
+                <li>布袋警察分局</li>
+                <ul>
+                    <li><a href="https://www.google.com.tw/maps/place/%E5%98%89%E7%BE%A9%E7%B8%A3%E8%AD%A6%E5%AF%9F%E5%B1%80%E5%B8%83%E8%A2%8B%E5%88%86%E5%B1%80%E6%9A%A8%E5%B8%83%E8%A2%8B%E6%B4%BE%E5%87%BA%E6%89%80/@23.3782388,120.1642395,17z/data=!3m1!4b1!4m5!3m4!1s0x346e8286ecb3da7b:0x8cdab0b4bf407f4d!8m2!3d23.3782191!4d120.1664761?hl=zh-TW&authuser=0" target="_blank">地址:布袋鎮光復里自由路1號</li></a>
+                    <li>電話:(05)347-2574</li>
+                </ul>
+                <li>布袋消防分隊</li>
+                <ul>
+                    <li><a href="https://www.google.com/maps/place/%E5%98%89%E7%BE%A9%E7%B8%A3%E6%B6%88%E9%98%B2%E5%B1%80%E7%AC%AC%E4%B8%80%E5%A4%A7%E9%9A%8A%E5%B8%83%E8%A2%8B%E6%B6%88%E9%98%B2%E5%88%86%E9%9A%8A/@23.3807061,120.1677335,15z/data=!4m5!3m4!1s0x0:0x37787bef35704b3f!8m2!3d23.3807061!4d120.1677335" target="_blank">地址:布袋鎮龍江里新厝仔2-2號</li></a>
+                    <li>電話:(05)347-2074</li>
+                </ul>
+                <li>布袋鎮衛生所</li>
+                <ul>
+                    <li><a href="https://www.google.com/maps/place/%E5%98%89%E7%BE%A9%E7%B8%A3%E5%B8%83%E8%A2%8B%E9%8E%AE%E8%A1%9B%E7%94%9F%E6%89%80/@23.3814261,120.1677808,17z/data=!3m1!4b1!4m5!3m4!1s0x346e82ed1696cb97:0xa34bceed6ec361a7!8m2!3d23.3814212!4d120.1699695" target="_blank">地址:布袋鎮新厝里新厝仔21號</li></a>
+                    <li>電話:(05)347-2032</li>
+                </ul>
+                <li>布袋海巡隊</li>
+                <ul>
+                    <li><a href="https://www.google.com/maps/place/%E6%B5%B7%E5%B7%A1%E7%BD%B2+%E5%B8%83%E8%A2%8B%E6%B5%B7%E5%B7%A1%E9%9A%8A/@23.3840351,120.151043,17z/data=!3m1!4b1!4m5!3m4!1s0x346c282a4d6d8c45:0x3acd6df49f8e8463!8m2!3d23.383993!4d120.1552704" target="_blank">地址:布袋鎮岑海里順安路79巷2號</li></a>
+                    <li>電話:(05)347-2199</li>
+                </ul>
+            </ul>
+        </div>
+        <div>
+            <p><b>診所</b></p>
+            <ul>
+                <li>康寶中醫診所</li>
+                <ul>
+                    <li><a href="https://www.google.com/maps/place/%E5%BA%B7%E5%AF%B6%E4%B8%AD%E9%86%AB%E8%A8%BA%E6%89%80(%E9%95%B7%E6%9C%9F%E7%96%BC%E7%97%9B%2F%E8%BA%AB%E9%AB%94%E8%AA%BF%E7%90%86%2F%E9%87%9D%E5%88%80%2F%E4%B8%AD%E9%A2%A8%2F%E8%82%A9%E9%A0%B8%E7%97%A0%E7%97%9B%2F%E5%AD%A9%E7%AB%A5%E6%88%90%E9%95%B7%2F%E5%A9%A6%E7%A7%91%E7%B6%93%E7%97%9B%2F%E7%BE%8E%E9%A1%8F%E9%87%9D%2F%E6%B8%9B%E9%87%8D)/@23.3784398,120.1605419,17z/data=!3m1!4b1!4m5!3m4!1s0x346e83a8870c34a1:0xd999310976fa3a9!8m2!3d23.3784349!4d120.1627306" target="_blank">地址:布袋鎮興中里14鄰太平路102號</li></a>
+                    <li>電話:(05)347-0068</li>
+                </ul>
+                <li>平安診所</li>
+                <ul>
+                    <li><a href="https://www.google.com/maps/place/%E5%B9%B3%E5%AE%89%E8%A8%BA%E6%89%80/@23.3787033,120.1632956,17z/data=!3m1!4b1!4m5!3m4!1s0x346e82868869d061:0xa7b8735e10252fb3!8m2!3d23.3787218!4d120.1675269" target="_blank">地址:布袋鎮興中里上海東路15號</li></a>
+                    <li>電話:(05)347-6000</li>
+                </ul>
+                <li>永吉診所</li>
+                <ul>
+                    <li><a href="https://www.google.com/maps/place/%E6%B0%B8%E5%90%89%E8%A8%BA%E6%89%80/@23.3792927,120.1578587,17z/data=!3m1!4b1!4m5!3m4!1s0x346e8286e8c343d1:0x90dd003aa9b4ce88!8m2!3d23.3792882!4d120.1600474" target="_blank">地址:布袋鎮興中里1鄰後寮路72巷28號</li></a>
+                    <li>電話:(05)347-2090</li>
+                </ul>
+                <li>均安診所</li>
+                <ul>
+                    <li><a href="https://www.google.com/maps/place/%E5%9D%87%E5%AE%89%E8%A8%BA%E6%89%80/@23.3774672,120.1653996,17z/data=!3m1!4b1!4m5!3m4!1s0x346e8286f8078ce9:0x6b9db240f479d42d!8m2!3d23.3774745!4d120.1675931" target="_blank">地址:布袋鎮興中里14鄰太平東路463號</li></a>
+                    <li>電話:(05)347-8200</li>
+                </ul>
+                <li>邱炳川診所</li>
+                <ul>
+                    <li><a href="https://www.google.com/maps/place/%E9%82%B1%E7%82%B3%E5%B7%9D%E8%A8%BA%E6%89%80/@23.3717029,120.18413,17z/data=!3m1!4b1!4m5!3m4!1s0x346e825f00000001:0x7da6cbb235e862bd!8m2!3d23.3716994!4d120.1863265" target="_blank">地址:布袋鎮永安里大寮227號</li></a>
+                    <li>電話:(05)347-6031</li>
+                </ul>
+                <li>祈安診所</li>
+                <ul>
+                    <li><a href="https://www.google.com/maps/place/%E7%A5%88%E5%AE%89%E8%A8%BA%E6%89%80/@23.3272258,120.157121,17z/data=!3m1!4b1!4m5!3m4!1s0x346e81fdfb8def71:0xaad3b1e314c96c3b!8m2!3d23.3272201!4d120.159297" target="_blank">地址:布袋鎮新民里新塭245號</li></a>
+                    <li>電話:(05)343-0230</li>
+                </ul>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

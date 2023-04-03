@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布袋旅遊趣</title>
+    <link rel="icon" href="anchor.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+    <style>
+        @font-face {
+            font-family: 'setofont';
+            src: url('setofont.ttf') format("truetype");
+        }
+
+        body {
+            background-image: url("網設背景.jpg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            background-color: #464646;
+        }
+
+        .menu {
+            width: 100%;
+            height: 50px;
+            position: relative;
+            background-color: white;
+        }
+
+        .menuimg img {
+            margin-left: 5px;
+            padding: 0px 2px;
+            float: left;
+            height: 45px;
+        }
+
+        .menutitle {
+            margin-left: 2px;
+            padding: 5px 2px;
+            font-size: 35px;
+            font-family: "setofont";
+            color: black;
+            float: left;
+            text-decoration: none;
+        }
+
+        .sel {
+            margin: 0px 7px;
+            padding: 5px 2px;
+            font-size: 35px;
+            font-family: "setofont";
+            color: black;
+            float: right;
+            text-decoration: none;
+        }
+
+        .sel:hover {
+            transform: scale(1.1);
+        }
+
+        .cat {
+            position: absolute;
+            width: 20%;
+            bottom: 0px;
+            right: 0px;
+        }
+
+        .recommend {
+            margin: 30px;
+            position: absolute;
+            width: 75%;
+            height: 80%;
+            background-color: aliceblue;
+            overflow: auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        .google {
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            height: 100%;
+        }
+
+        .trip {
+            font-size: 35px;
+            font-family: "setofont";
+            position: absolute;
+            left: 20px;
+            top: 20px;
+        }
+    </style>
+    <SCRIPT LANGUAGE="JavaScript">
+
+        //checkbox元素的名字字首,本例為sample1,sample2,sample3...
+        var sCtrlPrefix = "sample";
+        //checkbox元素數量,本例有18個;
+        var iMaxCheckbox = 7;
+        //設定最大允許選擇的數量;
+        var iMaxSelected = 2;
+        function doCheck(ctrl) {
+            var iNumChecked = 0;
+            var thisCtrl;
+            var i;
+            //初始化
+            i = 1;
+            //迴圈直到選中了最多的checkbox;
+            while ((i <= iMaxCheckbox) && (iNumChecked <= iMaxSelected)) {
+                thisCtrl = eval("ctrl.form." + sCtrlPrefix + i);
+                if ((thisCtrl != ctrl) && (thisCtrl.checked)) {
+                    iNumChecked++;
+                }
+                i++;
+            }
+            // 檢查是否達到了最大選擇數量;
+            if (iNumChecked == iMaxSelected) {
+                // 如果是則uncheck剛選擇的元素;
+                ctrl.checked = false;
+            }
+            getchecked();
+        }
+        //判斷checkbox是否被勾選
+        function getchecked() {
+            var array = []
+            var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+
+            for (var i = 0; i < checkboxes.length; i++) {
+                array.push(checkboxes[i].value);
+                console.log(checkboxes[i].value);
+            }
+
+            if (array.includes('1') && array.includes('2')) {
+                document.getElementById("google2").src = "https://www.google.com/maps/embed?pb=!1m46!1m12!1m3!1d59064.88695238037!2d120.14208657879125!3d23.356667840638206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m31!3e0!4m5!1s0x346c29ed42b4e0f5%3A0xe8631defe690ed3f!2z5aW9576O6YeMM0TmtbfmtIvkuJbnlYzmiLblpJbnvo7ooZPppKggNjI15ZiJ576p57ij5biD6KKL6Y6u5aW9576O6YeMMTA26JmfMTMy6Jmf!3m2!1d23.3366445!2d120.1377206!4m5!1s0x346e827cd4c736dd%3A0x2bc6bee5e3dbac1b!2z5ZiJ576p57ij5biD6KKL6Y6u5biD6KKL5r-V5Zyw55Sf5oWL5ZyS5Y2A!3m2!1d23.3626848!2d120.17794479999999!4m5!1s0x346e8298ee08d2ab%3A0x8aef8cd9d34f1c45!2z5ZiJ576p57ij5biD6KKL6Y6u5biD6KKL6bm95bGx!3m2!1d23.3814544!2d120.16863169999999!4m5!1s0x346c282ba9bbdd97%3A0x4cb1ad2d032eba51!2z5ZiJ576p57ij5biD6KKL6Y6u5Lit5bGx6Lev5biD6KKL5ryB5riv6a2a5biC5aC0!3m2!1d23.379479!2d120.155564!4m5!1s0x346c282d1d84c23d%3A0x4eff3d0768a027da!2z5ZiJ576p57ij5biD6KKL6Y6u5paw6KW_6Lev6auY6Lef6Z6L5pWZ5aCC!3m2!1d23.3777863!2d120.1487636!5e0!3m2!1szh-TW!2stw!4v1673167917246!5m2!1szh-TW!2stw";
+            }
+            else if(array.includes('1') && array.includes('3')) {
+                document.getElementById("google2").src = "https://www.google.com/maps/embed?pb=!1m46!1m12!1m3!1d49310.89419790078!2d120.13167297655329!3d23.35856788816136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m31!3e0!4m5!1s0x346c29ed42b4e0f5%3A0xe8631defe690ed3f!2z5aW9576O6YeMM0TmtbfmtIvkuJbnlYzmiLblpJbnvo7ooZPppKggNjI15ZiJ576p57ij5biD6KKL6Y6u5aW9576O6YeMMTA26JmfMTMy6Jmf!3m2!1d23.3366445!2d120.1377206!4m5!1s0x346e827cd4c736dd%3A0x2bc6bee5e3dbac1b!2z5ZiJ576p57ij5biD6KKL6Y6u5biD6KKL5r-V5Zyw55Sf5oWL5ZyS5Y2A!3m2!1d23.3626848!2d120.17794479999999!4m5!1s0x346e829a804cff93%3A0x85f9cca6c625673f!2z5ZiJ576p57ij5biD6KKL6Y6u5paw5Y6d5LuU5rSy5Y2X6bm95aC0!3m2!1d23.3839298!2d120.1673704!4m5!1s0x346c282ba9bbdd97%3A0x4cb1ad2d032eba51!2z5ZiJ576p57ij5biD6KKL6Y6u5Lit5bGx6Lev5biD6KKL5ryB5riv6a2a5biC5aC0!3m2!1d23.379479!2d120.155564!4m5!1s0x346c282d1d84c23d%3A0x4eff3d0768a027da!2z5ZiJ576p57ij5biD6KKL6Y6u5paw6KW_6Lev6auY6Lef6Z6L5pWZ5aCC!3m2!1d23.3777863!2d120.1487636!5e0!3m2!1szh-TW!2stw!4v1673168014470!5m2!1szh-TW!2stw";
+            }
+            else if(array.includes('1') && array.includes('4')) {
+                document.getElementById("google2").src = "https://www.google.com/maps/embed?pb=!1m46!1m12!1m3!1d58607.20412705129!2d120.12330388703876!3d23.353816606085175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m31!3e0!4m5!1s0x346c29ed42b4e0f5%3A0xe8631defe690ed3f!2z5aW9576O6YeMM0TmtbfmtIvkuJbnlYzmiLblpJbnvo7ooZPppKggNjI15ZiJ576p57ij5biD6KKL6Y6u5aW9576O6YeMMTA26JmfMTMy6Jmf!3m2!1d23.3366445!2d120.1377206!4m5!1s0x346e827cd4c736dd%3A0x2bc6bee5e3dbac1b!2z5ZiJ576p57ij5biD6KKL6Y6u5biD6KKL5r-V5Zyw55Sf5oWL5ZyS5Y2A!3m2!1d23.3626848!2d120.17794479999999!4m5!1s0x346c29c626db1b63%3A0xab8748af72e41b63!2z5ZiJ576p57ij5biD6KKL6Y6u5YWl6Ii56Lev5biD6KKL5LqU5Zub5LiJIOW4g-iii-Wwj-mOruWxleekuuaJgA!3m2!1d23.3778397!2d120.15683109999999!4m5!1s0x346c282ba9bbdd97%3A0x4cb1ad2d032eba51!2z5ZiJ576p57ij5biD6KKL6Y6u5Lit5bGx6Lev5biD6KKL5ryB5riv6a2a5biC5aC0!3m2!1d23.379479!2d120.155564!4m5!1s0x346c282d1d84c23d%3A0x4eff3d0768a027da!2z5ZiJ576p57ij5biD6KKL6Y6u5paw6KW_6Lev6auY6Lef6Z6L5pWZ5aCC!3m2!1d23.3777863!2d120.1487636!5e0!3m2!1szh-TW!2stw!4v1673168072117!5m2!1szh-TW!2stw";
+            }
+            else if(array.includes('1') && array.includes('5')) {
+                document.getElementById("google2").src = "https://www.google.com/maps/embed?pb=!1m46!1m12!1m3!1d40578.85370646079!2d120.13581594720456!3d23.358168455441913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m31!3e0!4m5!1s0x346c29ed42b4e0f5%3A0xe8631defe690ed3f!2z5aW9576O6YeMM0TmtbfmtIvkuJbnlYzmiLblpJbnvo7ooZPppKggNjI15ZiJ576p57ij5biD6KKL6Y6u5aW9576O6YeMMTA26JmfMTMy6Jmf!3m2!1d23.3366445!2d120.1377206!4m5!1s0x346e827cd4c736dd%3A0x2bc6bee5e3dbac1b!2z5ZiJ576p57ij5biD6KKL6Y6u5biD6KKL5r-V5Zyw55Sf5oWL5ZyS5Y2A!3m2!1d23.3626848!2d120.17794479999999!4m5!1s0x346c282ba9bbdd97%3A0x4cb1ad2d032eba51!2z5ZiJ576p57ij5biD6KKL6Y6u5Lit5bGx6Lev5biD6KKL5ryB5riv6a2a5biC5aC0!3m2!1d23.379479!2d120.155564!4m5!1s0x346c282d21df222d%3A0x97066f9497d60c52!2z5ZiJ576p57ij5biD6KKL6Y6u5Lit5bGx6Lev5q2m6IGW5a6u!3m2!1d23.379578!2d120.1499279!4m5!1s0x346c282d1d84c23d%3A0x4eff3d0768a027da!2z5ZiJ576p57ij5biD6KKL6Y6u5paw6KW_6Lev6auY6Lef6Z6L5pWZ5aCC!3m2!1d23.3777863!2d120.1487636!5e0!3m2!1szh-TW!2stw!4v1673168177564!5m2!1szh-TW!2stw";
+            }
+            else if(array.includes('1') && array.includes('6')) {
+                document.getElementById("google2").src = "https://www.google.com/maps/embed?pb=!1m42!1m8!1m3!1d48073.204045718005!2d120.12736409364321!3d23.3560763208488!3m2!1i1024!2i768!4f13.1!4m31!3e0!4m5!1s0x346c29ed42b4e0f5%3A0xe8631defe690ed3f!2z5aW9576O6YeMM0TmtbfmtIvkuJbnlYzmiLblpJbnvo7ooZPppKggNjI15ZiJ576p57ij5biD6KKL6Y6u5aW9576O6YeMMTA26JmfMTMy6Jmf!3m2!1d23.3366445!2d120.1377206!4m5!1s0x346e827cd4c736dd%3A0x2bc6bee5e3dbac1b!2z5ZiJ576p57ij5biD6KKL6Y6u5biD6KKL5r-V5Zyw55Sf5oWL5ZyS5Y2A!3m2!1d23.3626848!2d120.17794479999999!4m5!1s0x346c282ba9bbdd97%3A0x4cb1ad2d032eba51!2z5ZiJ576p57ij5biD6KKL6Y6u5Lit5bGx6Lev5biD6KKL5ryB5riv6a2a5biC5aC0!3m2!1d23.379479!2d120.155564!4m5!1s0x346c282d1d84c23d%3A0x4eff3d0768a027da!2z5ZiJ576p57ij5biD6KKL6Y6u5paw6KW_6Lev6auY6Lef6Z6L5pWZ5aCC!3m2!1d23.3777863!2d120.1487636!4m5!1s0x346c2923df8dab37%3A0xe9f4ee187e4e4a8b!2z5ZiJ576p57ij5biD6KKL6Y6u5biD6KKL5riv5riv5YuZ5aSn5qiT5YmN56u55aSV5buj5aC0!3m2!1d23.3793948!2d120.14704479999999!5e0!3m2!1szh-TW!2stw!4v1673168287011!5m2!1szh-TW!2stw";
+            }
+            else if(array.includes('1') && array.includes('7')) {
+                document.getElementById("google2").src = "https://www.google.com/maps/embed?pb=!1m46!1m12!1m3!1d58606.13036562076!2d120.12330388705286!3d23.356247654330048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m31!3e0!4m5!1s0x346c29ed42b4e0f5%3A0xe8631defe690ed3f!2z5aW9576O6YeMM0TmtbfmtIvkuJbnlYzmiLblpJbnvo7ooZPppKggNjI15ZiJ576p57ij5biD6KKL6Y6u5aW9576O6YeMMTA26JmfMTMy6Jmf!3m2!1d23.3366445!2d120.1377206!4m5!1s0x346e827cd4c736dd%3A0x2bc6bee5e3dbac1b!2z5ZiJ576p57ij5biD6KKL6Y6u5biD6KKL5r-V5Zyw55Sf5oWL5ZyS5Y2A!3m2!1d23.3626848!2d120.17794479999999!4m5!1s0x346c282ba9bbdd97%3A0x4cb1ad2d032eba51!2z5ZiJ576p57ij5biD6KKL6Y6u5Lit5bGx6Lev5biD6KKL5ryB5riv6a2a5biC5aC0!3m2!1d23.379479!2d120.155564!4m5!1s0x346c282d1d84c23d%3A0x4eff3d0768a027da!2z5ZiJ576p57ij5biD6KKL6Y6u5paw6KW_6Lev6auY6Lef6Z6L5pWZ5aCC!3m2!1d23.3777863!2d120.1487636!4m5!1s0x346c282eedea23bb%3A0x21904fffbf949822!2z5ZiJ576p57ij5biD6KKL6Y6u5biD6KKL5bCP56K65bm45rW354GY!3m2!1d23.3846214!2d120.15107529999999!5e0!3m2!1szh-TW!2stw!4v1673168321002!5m2!1szh-TW!2stw";
+            }
+            else if(array.includes('2') && array.includes('3')) {
+                document.getElementById("google2").src = "https://www.google.com/maps/embed?pb=!1m46!1m12!1m3!1d55061.39227590378!2d120.12390468009376!3d23.357212248384133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m31!3e0!4m5!1s0x346c29ed42b4e0f5%3A0xe8631defe690ed3f!2z5aW9576O6YeMM0TmtbfmtIvkuJbnlYzmiLblpJbnvo7ooZPppKggNjI15ZiJ576p57ij5biD6KKL6Y6u5aW9576O6YeMMTA26JmfMTMy6Jmf!3m2!1d23.3366445!2d120.1377206!4m5!1s0x346e8298ee08d2ab%3A0x8aef8cd9d34f1c45!2z5ZiJ576p57ij5biD6KKL6Y6u5biD6KKL6bm95bGx!3m2!1d23.3814544!2d120.16863169999999!4m5!1s0x346e829a804cff93%3A0x85f9cca6c625673f!2z5ZiJ576p57ij5biD6KKL6Y6u5paw5Y6d5LuU5rSy5Y2X6bm95aC0!3m2!1d23.3839298!2d120.1673704!4m5!1s0x346c282ba9bbdd97%3A0x4cb1ad2d032eba51!2z5ZiJ576p57ij5biD6KKL6Y6u5Lit5bGx6Lev5biD6KKL5ryB5riv6a2a5biC5aC0!3m2!1d23.379479!2d120.155564!4m5!1s0x346c282d1d84c23d%3A0x4eff3d0768a027da!2z5ZiJ576p57ij5biD6KKL6Y6u5paw6KW_6Lev6auY6Lef6Z6L5pWZ5aCC!3m2!1d23.3777863!2d120.1487636!5e0!3m2!1szh-TW!2stw!4v1673168429381!5m2!1szh-TW!2stw";
+            }
+            else if(array.includes('2') && array.includes('4')) {
+                document.getElementById("google2").src = "https://www.google.com/maps/embed?pb=!1m46!1m12!1m3!1d58606.829522816945!2d120.12050403704367!3d23.35466475547287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m31!3e0!4m5!1s0x346c29ed42b4e0f5%3A0xe8631defe690ed3f!2z5aW9576O6YeMM0TmtbfmtIvkuJbnlYzmiLblpJbnvo7ooZPppKggNjI15ZiJ576p57ij5biD6KKL6Y6u5aW9576O6YeMMTA26JmfMTMy6Jmf!3m2!1d23.3366445!2d120.1377206!4m5!1s0x346e8298ee08d2ab%3A0x8aef8cd9d34f1c45!2z5ZiJ576p57ij5biD6KKL6Y6u5biD6KKL6bm95bGx!3m2!1d23.3814544!2d120.16863169999999!4m5!1s0x346c29c626db1b63%3A0xab8748af72e41b63!2z5ZiJ576p57ij5biD6KKL6Y6u5YWl6Ii56Lev5biD6KKL5LqU5Zub5LiJIOW4g-iii-Wwj-mOruWxleekuuaJgA!3m2!1d23.3778397!2d120.15683109999999!4m5!1s0x346c282ba9bbdd97%3A0x4cb1ad2d032eba51!2z5ZiJ576p57ij5biD6KKL6Y6u5Lit5bGx6Lev5biD6KKL5ryB5riv6a2a5biC5aC0!3m2!1d23.379479!2d120.155564!4m5!1s0x346c282d1d84c23d%3A0x4eff3d0768a027da!2z5ZiJ576p57ij5biD6KKL6Y6u5paw6KW_6Lev6auY6Lef6Z6L5pWZ5aCC!3m2!1d23.3777863!2d120.1487636!5e0!3m2!1szh-TW!2stw!4v1673168463980!5m2!1szh-TW!2stw";
+            }
+            else if(array.includes('2') && array.includes('5')) {
+                document.getElementById("google2").src = "https://www.google.com/maps/embed?pb=!1m46!1m12!1m3!1d58606.829522816945!2d120.12050403704367!3d23.35466475547287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m31!3e0!4m5!1s0x346c29ed42b4e0f5%3A0xe8631defe690ed3f!2z5aW9576O6YeMM0TmtbfmtIvkuJbnlYzmiLblpJbnvo7ooZPppKggNjI15ZiJ576p57ij5biD6KKL6Y6u5aW9576O6YeMMTA26JmfMTMy6Jmf!3m2!1d23.3366445!2d120.1377206!4m5!1s0x346e8298ee08d2ab%3A0x8aef8cd9d34f1c45!2z5ZiJ576p57ij5biD6KKL6Y6u5biD6KKL6bm95bGx!3m2!1d23.3814544!2d120.16863169999999!4m5!1s0x346c282ba9bbdd97%3A0x4cb1ad2d032eba51!2z5ZiJ576p57ij5biD6KKL6Y6u5Lit5bGx6Lev5biD6KKL5ryB5riv6a2a5biC5aC0!3m2!1d23.379479!2d120.155564!4m5!1s0x346c282d21df222d%3A0x97066f9497d60c52!2z5ZiJ576p57ij5biD6KKL6Y6u5Lit5bGx6Lev5q2m6IGW5a6u!3m2!1d23.379578!2d120.1499279!4m5!1s0x346c282d1d84c23d%3A0x4eff3d0768a027da!2z5ZiJ576p57ij5biD6KKL6Y6u5paw6KW_6Lev6auY6Lef6Z6L5pWZ5aCC!3m2!1d23.3777863!2d120.1487636!5e0!3m2!1szh-TW!2stw!4v1673168505340!5m2!1szh-TW!2stw";
+            }
+            else if(array.includes('2') && array.includes('6')) {
+                document.getElementById("google2").src = "https://www.google.com/maps/embed?pb=!1m46!1m12!1m3!1d58606.829522816945!2d120.12050403704367!3d23.35466475547287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m31!3e0!4m5!1s0x346c29ed42b4e0f5%3A0xe8631defe690ed3f!2z5aW9576O6YeMM0TmtbfmtIvkuJbnlYzmiLblpJbnvo7ooZPppKggNjI15ZiJ576p57ij5biD6KKL6Y6u5aW9576O6YeMMTA26JmfMTMy6Jmf!3m2!1d23.3366445!2d120.1377206!4m5!1s0x346e8298ee08d2ab%3A0x8aef8cd9d34f1c45!2z5ZiJ576p57ij5biD6KKL6Y6u5biD6KKL6bm95bGx!3m2!1d23.3814544!2d120.16863169999999!4m5!1s0x346c282ba9bbdd97%3A0x4cb1ad2d032eba51!2z5ZiJ576p57ij5biD6KKL6Y6u5Lit5bGx6Lev5biD6KKL5ryB5riv6a2a5biC5aC0!3m2!1d23.379479!2d120.155564!4m5!1s0x346c282d1d84c23d%3A0x4eff3d0768a027da!2z5ZiJ576p57ij5biD6KKL6Y6u5paw6KW_6Lev6auY6Lef6Z6L5pWZ5aCC!3m2!1d23.3777863!2d120.1487636!4m5!1s0x346c2923df8dab37%3A0xe9f4ee187e4e4a8b!2z5ZiJ576p57ij5biD6KKL6Y6u5biD6KKL5riv5riv5YuZ5aSn5qiT5YmN56u55aSV5buj5aC0!3m2!1d23.3793948!2d120.14704479999999!5e0!3m2!1szh-TW!2stw!4v1673168540709!5m2!1szh-TW!2stw";
+            }
+            else if(array.includes('2') && array.includes('7')) {
+                document.getElementById("google2").src = "https://www.google.com/maps/embed?pb=!1m46!1m12!1m3!1d58606.13010059597!2d120.12050403705288!3d23.356248254329614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m31!3e0!4m5!1s0x346c29ed42b4e0f5%3A0xe8631defe690ed3f!2z5aW9576O6YeMM0TmtbfmtIvkuJbnlYzmiLblpJbnvo7ooZPppKggNjI15ZiJ576p57ij5biD6KKL6Y6u5aW9576O6YeMMTA26JmfMTMy6Jmf!3m2!1d23.3366445!2d120.1377206!4m5!1s0x346e8298ee08d2ab%3A0x8aef8cd9d34f1c45!2z5ZiJ576p57ij5biD6KKL6Y6u5biD6KKL6bm95bGx!3m2!1d23.3814544!2d120.16863169999999!4m5!1s0x346c282ba9bbdd97%3A0x4cb1ad2d032eba51!2z5ZiJ576p57ij5biD6KKL6Y6u5Lit5bGx6Lev5biD6KKL5ryB5riv6a2a5biC5aC0!3m2!1d23.379479!2d120.155564!4m5!1s0x346c282d1d84c23d%3A0x4eff3d0768a027da!2z5ZiJ576p57ij5biD6KKL6Y6u5paw6KW_6Lev6auY6Lef6Z6L5pWZ5aCC!3m2!1d23.3777863!2d120.1487636!4m5!1s0x346c282eedea23bb%3A0x21904fffbf949822!2z5ZiJ576p57ij5biD6KKL6Y6u5biD6KKL5bCP56K65bm45rW354GY!3m2!1d23.3846214!2d120.15107529999999!5e0!3m2!1szh-TW!2stw!4v1673168567296!5m2!1szh-TW!2stw";
+            }
+            else if(array.includes('3') && array.includes('4')) {
+                document.getElementById("google2").src = "https://www.google.com/maps/embed?pb=!1m46!1m12!1m3!1d58606.282842151784!2d120.12050403705084!3d23.355902454579276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m31!3e0!4m5!1s0x346c29ed42b4e0f5%3A0xe8631defe690ed3f!2z5aW9576O6YeMM0TmtbfmtIvkuJbnlYzmiLblpJbnvo7ooZPppKggNjI15ZiJ576p57ij5biD6KKL6Y6u5aW9576O6YeMMTA26JmfMTMy6Jmf!3m2!1d23.3366445!2d120.1377206!4m5!1s0x346e829a804cff93%3A0x85f9cca6c625673f!2z5ZiJ576p57ij5biD6KKL6Y6u5paw5Y6d5LuU5rSy5Y2X6bm95aC0!3m2!1d23.3839298!2d120.1673704!4m5!1s0x346c29c626db1b63%3A0xab8748af72e41b63!2z5ZiJ576p57ij5biD6KKL6Y6u5YWl6Ii56Lev5biD6KKL5LqU5Zub5LiJIOW4g-iii-Wwj-mOruWxleekuuaJgA!3m2!1d23.3778397!2d120.15683109999999!4m5!1s0x346c282ba9bbdd97%3A0x4cb1ad2d032eba51!2z5ZiJ576p57ij5biD6KKL6Y6u5Lit5bGx6Lev5biD6KKL5ryB5riv6a2a5biC5aC0!3m2!1d23.379479!2d120.155564!4m5!1s0x346c282d1d84c23d%3A0x4eff3d0768a027da!2z5ZiJ576p57ij5biD6KKL6Y6u5paw6KW_6Lev6auY6Lef6Z6L5pWZ5aCC!3m2!1d23.3777863!2d120.1487636!5e0!3m2!1szh-TW!2stw!4v1673168614634!5m2!1szh-TW!2stw";
+            }
+            else if(array.includes('3') && array.includes('5')) {
+                document.getElementById("google2").src = "https://www.google.com/maps/embed?pb=!1m46!1m12!1m3!1d58606.282842151784!2d120.12050403705084!3d23.355902454579276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m31!3e0!4m5!1s0x346c29ed42b4e0f5%3A0xe8631defe690ed3f!2z5aW9576O6YeMM0TmtbfmtIvkuJbnlYzmiLblpJbnvo7ooZPppKggNjI15ZiJ576p57ij5biD6KKL6Y6u5aW9576O6YeMMTA26JmfMTMy6Jmf!3m2!1d23.3366445!2d120.1377206!4m5!1s0x346e829a804cff93%3A0x85f9cca6c625673f!2z5ZiJ576p57ij5biD6KKL6Y6u5paw5Y6d5LuU5rSy5Y2X6bm95aC0!3m2!1d23.3839298!2d120.1673704!4m5!1s0x346c282ba9bbdd97%3A0x4cb1ad2d032eba51!2z5ZiJ576p57ij5biD6KKL6Y6u5Lit5bGx6Lev5biD6KKL5ryB5riv6a2a5biC5aC0!3m2!1d23.379479!2d120.155564!4m5!1s0x346c282d21df222d%3A0x97066f9497d60c52!2z5ZiJ576p57ij5biD6KKL6Y6u5Lit5bGx6Lev5q2m6IGW5a6u!3m2!1d23.379578!2d120.1499279!4m5!1s0x346c282d1d84c23d%3A0x4eff3d0768a027da!2z5ZiJ576p57ij5biD6KKL6Y6u5paw6KW_6Lev6auY6Lef6Z6L5pWZ5aCC!3m2!1d23.3777863!2d120.1487636!5e0!3m2!1szh-TW!2stw!4v1673168689343!5m2!1szh-TW!2stw";
+            }
+            else if(array.includes('3') && array.includes('6')) {
+                document.getElementById("google2").src = "https://www.google.com/maps/embed?pb=!1m46!1m12!1m3!1d58606.282842151784!2d120.12050403705084!3d23.355902454579276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m31!3e0!4m5!1s0x346c29ed42b4e0f5%3A0xe8631defe690ed3f!2z5aW9576O6YeMM0TmtbfmtIvkuJbnlYzmiLblpJbnvo7ooZPppKggNjI15ZiJ576p57ij5biD6KKL6Y6u5aW9576O6YeMMTA26JmfMTMy6Jmf!3m2!1d23.3366445!2d120.1377206!4m5!1s0x346e829a804cff93%3A0x85f9cca6c625673f!2z5ZiJ576p57ij5biD6KKL6Y6u5paw5Y6d5LuU5rSy5Y2X6bm95aC0!3m2!1d23.3839298!2d120.1673704!4m5!1s0x346c282ba9bbdd97%3A0x4cb1ad2d032eba51!2z5ZiJ576p57ij5biD6KKL6Y6u5Lit5bGx6Lev5biD6KKL5ryB5riv6a2a5biC5aC0!3m2!1d23.379479!2d120.155564!4m5!1s0x346c282d1d84c23d%3A0x4eff3d0768a027da!2z5ZiJ576p57ij5biD6KKL6Y6u5paw6KW_6Lev6auY6Lef6Z6L5pWZ5aCC!3m2!1d23.3777863!2d120.1487636!4m5!1s0x346c2923df8dab37%3A0xe9f4ee187e4e4a8b!2z56u55aSV5buj5aC0IDYyNeWYiee-qee4o-W4g-iii-mOruW4g-iii-a4r-a4r-WLmeWkp-aok-WJjQ!3m2!1d23.3793948!2d120.14704479999999!5e0!3m2!1szh-TW!2stw!4v1673168719300!5m2!1szh-TW!2stw";
+            }
+            else if(array.includes('3') && array.includes('7')) {
+                document.getElementById("google2").src = "https://www.google.com/maps/embed?pb=!1m46!1m12!1m3!1d58606.13010059597!2d120.12050403705288!3d23.356248254329614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m31!3e0!4m5!1s0x346c29ed42b4e0f5%3A0xe8631defe690ed3f!2z5aW9576O6YeMM0TmtbfmtIvkuJbnlYzmiLblpJbnvo7ooZPppKggNjI15ZiJ576p57ij5biD6KKL6Y6u5aW9576O6YeMMTA26JmfMTMy6Jmf!3m2!1d23.3366445!2d120.1377206!4m5!1s0x346e829a804cff93%3A0x85f9cca6c625673f!2z5ZiJ576p57ij5biD6KKL6Y6u5paw5Y6d5LuU5rSy5Y2X6bm95aC0!3m2!1d23.3839298!2d120.1673704!4m5!1s0x346c282ba9bbdd97%3A0x4cb1ad2d032eba51!2z5ZiJ576p57ij5biD6KKL6Y6u5Lit5bGx6Lev5biD6KKL5ryB5riv6a2a5biC5aC0!3m2!1d23.379479!2d120.155564!4m5!1s0x346c282d1d84c23d%3A0x4eff3d0768a027da!2z5ZiJ576p57ij5biD6KKL6Y6u5paw6KW_6Lev6auY6Lef6Z6L5pWZ5aCC!3m2!1d23.3777863!2d120.1487636!4m5!1s0x346c282eedea23bb%3A0x21904fffbf949822!2z5ZiJ576p57ij5biD6KKL6Y6u5biD6KKL5bCP56K65bm45rW354GY!3m2!1d23.3846214!2d120.15107529999999!5e0!3m2!1szh-TW!2stw!4v1673168751876!5m2!1szh-TW!2stw";
+            }
+            else if(array.includes('4') && array.includes('5')) {
+                document.getElementById("google2").src = "https://www.google.com/maps/embed?pb=!1m46!1m12!1m3!1d58607.20386205254!2d120.11639568703876!3d23.35381720608474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m31!3e0!4m5!1s0x346c29ed42b4e0f5%3A0xe8631defe690ed3f!2z5aW9576O6YeMM0TmtbfmtIvkuJbnlYzmiLblpJbnvo7ooZPppKggNjI15ZiJ576p57ij5biD6KKL6Y6u5aW9576O6YeMMTA26JmfMTMy6Jmf!3m2!1d23.3366445!2d120.1377206!4m5!1s0x346c29c626db1b63%3A0xab8748af72e41b63!2z5ZiJ576p57ij5biD6KKL6Y6u5YWl6Ii56Lev5biD6KKL5LqU5Zub5LiJIOW4g-iii-Wwj-mOruWxleekuuaJgA!3m2!1d23.3778397!2d120.15683109999999!4m5!1s0x346c282ba9bbdd97%3A0x4cb1ad2d032eba51!2z5ZiJ576p57ij5biD6KKL6Y6u5Lit5bGx6Lev5biD6KKL5ryB5riv6a2a5biC5aC0!3m2!1d23.379479!2d120.155564!4m5!1s0x346c282d21df222d%3A0x97066f9497d60c52!2z5biD6KKL5q2m6IGW5a6uIDYyNeWYiee-qee4o-W4g-iii-mOruS4reWxsei3rzI4OeiZnw!3m2!1d23.379578!2d120.1499279!4m5!1s0x346c282d1d84c23d%3A0x4eff3d0768a027da!2z5ZiJ576p57ij5biD6KKL6Y6u5paw6KW_6Lev6auY6Lef6Z6L5pWZ5aCC!3m2!1d23.3777863!2d120.1487636!5e0!3m2!1szh-TW!2stw!4v1673168798628!5m2!1szh-TW!2stw";
+            }
+            else if(array.includes('4') && array.includes('6')) {
+                document.getElementById("google2").src = "https://www.google.com/maps/embed?pb=!1m46!1m12!1m3!1d58607.20386205254!2d120.11639568703876!3d23.35381720608474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m31!3e0!4m5!1s0x346c29ed42b4e0f5%3A0xe8631defe690ed3f!2z5aW9576O6YeMM0TmtbfmtIvkuJbnlYzmiLblpJbnvo7ooZPppKggNjI15ZiJ576p57ij5biD6KKL6Y6u5aW9576O6YeMMTA26JmfMTMy6Jmf!3m2!1d23.3366445!2d120.1377206!4m5!1s0x346c29c626db1b63%3A0xab8748af72e41b63!2z5ZiJ576p57ij5biD6KKL6Y6u5YWl6Ii56Lev5biD6KKL5LqU5Zub5LiJIOW4g-iii-Wwj-mOruWxleekuuaJgA!3m2!1d23.3778397!2d120.15683109999999!4m5!1s0x346c282ba9bbdd97%3A0x4cb1ad2d032eba51!2z5ZiJ576p57ij5biD6KKL6Y6u5Lit5bGx6Lev5biD6KKL5ryB5riv6a2a5biC5aC0!3m2!1d23.379479!2d120.155564!4m5!1s0x346c282d1d84c23d%3A0x4eff3d0768a027da!2z5ZiJ576p57ij5biD6KKL6Y6u5paw6KW_6Lev6auY6Lef6Z6L5pWZ5aCC!3m2!1d23.3777863!2d120.1487636!4m5!1s0x346c2923df8dab37%3A0xe9f4ee187e4e4a8b!2z56u55aSV5buj5aC0IDYyNeWYiee-qee4o-W4g-iii-mOruW4g-iii-a4r-a4r-WLmeWkp-aok-WJjQ!3m2!1d23.3793948!2d120.14704479999999!5e0!3m2!1szh-TW!2stw!4v1673168836084!5m2!1szh-TW!2stw";
+            }
+            else if(array.includes('4') && array.includes('7')) {
+                document.getElementById("google2").src = "https://www.google.com/maps/embed?pb=!1m46!1m12!1m3!1d58606.13010059597!2d120.11639568705286!3d23.356248254329614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m31!3e0!4m5!1s0x346c29ed42b4e0f5%3A0xe8631defe690ed3f!2z5aW9576O6YeMM0TmtbfmtIvkuJbnlYzmiLblpJbnvo7ooZPppKggNjI15ZiJ576p57ij5biD6KKL6Y6u5aW9576O6YeMMTA26JmfMTMy6Jmf!3m2!1d23.3366445!2d120.1377206!4m5!1s0x346c29c626db1b63%3A0xab8748af72e41b63!2z5ZiJ576p57ij5biD6KKL6Y6u5YWl6Ii56Lev5biD6KKL5LqU5Zub5LiJIOW4g-iii-Wwj-mOruWxleekuuaJgA!3m2!1d23.3778397!2d120.15683109999999!4m5!1s0x346c282ba9bbdd97%3A0x4cb1ad2d032eba51!2z5ZiJ576p57ij5biD6KKL6Y6u5Lit5bGx6Lev5biD6KKL5ryB5riv6a2a5biC5aC0!3m2!1d23.379479!2d120.155564!4m5!1s0x346c282d1d84c23d%3A0x4eff3d0768a027da!2z5ZiJ576p57ij5biD6KKL6Y6u5paw6KW_6Lev6auY6Lef6Z6L5pWZ5aCC!3m2!1d23.3777863!2d120.1487636!4m5!1s0x346c282eedea23bb%3A0x21904fffbf949822!2z5ZiJ576p57ij5biD6KKL6Y6u5biD6KKL5bCP56K65bm45rW354GY!3m2!1d23.3846214!2d120.15107529999999!5e0!3m2!1szh-TW!2stw!4v1673168865428!5m2!1szh-TW!2stw";
+            }
+            else if(array.includes('5') && array.includes('6')) {
+                document.getElementById("google2").src = "https://www.google.com/maps/embed?pb=!1m46!1m12!1m3!1d58607.20386205254!2d120.11639568703876!3d23.35381720608474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m31!3e0!4m5!1s0x346c29ed42b4e0f5%3A0xe8631defe690ed3f!2z5aW9576O6YeMM0TmtbfmtIvkuJbnlYzmiLblpJbnvo7ooZPppKggNjI15ZiJ576p57ij5biD6KKL6Y6u5aW9576O6YeMMTA26JmfMTMy6Jmf!3m2!1d23.3366445!2d120.1377206!4m5!1s0x346c282ba9bbdd97%3A0x4cb1ad2d032eba51!2z5ZiJ576p57ij5biD6KKL6Y6u5Lit5bGx6Lev5biD6KKL5ryB5riv6a2a5biC5aC0!3m2!1d23.379479!2d120.155564!4m5!1s0x346c282d21df222d%3A0x97066f9497d60c52!2z5biD6KKL5q2m6IGW5a6uIDYyNeWYiee-qee4o-W4g-iii-mOruS4reWxsei3rzI4OeiZnw!3m2!1d23.379578!2d120.1499279!4m5!1s0x346c282d1d84c23d%3A0x4eff3d0768a027da!2z5ZiJ576p57ij5biD6KKL6Y6u5paw6KW_6Lev6auY6Lef6Z6L5pWZ5aCC!3m2!1d23.3777863!2d120.1487636!4m5!1s0x346c2923df8dab37%3A0xe9f4ee187e4e4a8b!2z5ZiJ576p57ij5biD6KKL6Y6u5biD6KKL5riv5riv5YuZ5aSn5qiT5YmN56u55aSV5buj5aC0!3m2!1d23.3793948!2d120.14704479999999!5e0!3m2!1szh-TW!2stw!4v1673168917899!5m2!1szh-TW!2stw";
+            }
+            else if(array.includes('5') && array.includes('7')) {
+                document.getElementById("google2").src = "https://www.google.com/maps/embed?pb=!1m46!1m12!1m3!1d58606.13010059597!2d120.11639568705286!3d23.356248254329614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m31!3e0!4m5!1s0x346c29ed42b4e0f5%3A0xe8631defe690ed3f!2z5aW9576O6YeMM0TmtbfmtIvkuJbnlYzmiLblpJbnvo7ooZPppKggNjI15ZiJ576p57ij5biD6KKL6Y6u5aW9576O6YeMMTA26JmfMTMy6Jmf!3m2!1d23.3366445!2d120.1377206!4m5!1s0x346c282ba9bbdd97%3A0x4cb1ad2d032eba51!2z5ZiJ576p57ij5biD6KKL6Y6u5Lit5bGx6Lev5biD6KKL5ryB5riv6a2a5biC5aC0!3m2!1d23.379479!2d120.155564!4m5!1s0x346c282d21df222d%3A0x97066f9497d60c52!2z5biD6KKL5q2m6IGW5a6uIDYyNeWYiee-qee4o-W4g-iii-mOruS4reWxsei3rzI4OeiZnw!3m2!1d23.379578!2d120.1499279!4m5!1s0x346c282d1d84c23d%3A0x4eff3d0768a027da!2z5ZiJ576p57ij5biD6KKL6Y6u5paw6KW_6Lev6auY6Lef6Z6L5pWZ5aCC!3m2!1d23.3777863!2d120.1487636!4m5!1s0x346c282eedea23bb%3A0x21904fffbf949822!2z5ZiJ576p57ij5biD6KKL6Y6u5biD6KKL5bCP56K65bm45rW354GY!3m2!1d23.3846214!2d120.15107529999999!5e0!3m2!1szh-TW!2stw!4v1673168938995!5m2!1szh-TW!2stw";
+            }
+            else if(array.includes('6') && array.includes('7')) {
+                document.getElementById("google2").src = "https://www.google.com/maps/embed?pb=!1m46!1m12!1m3!1d58606.13010059597!2d120.11639568705286!3d23.356248254329614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m31!3e0!4m5!1s0x346c29ed42b4e0f5%3A0xe8631defe690ed3f!2z5aW9576O6YeMM0TmtbfmtIvkuJbnlYzmiLblpJbnvo7ooZPppKggNjI15ZiJ576p57ij5biD6KKL6Y6u5aW9576O6YeMMTA26JmfMTMy6Jmf!3m2!1d23.3366445!2d120.1377206!4m5!1s0x346c282ba9bbdd97%3A0x4cb1ad2d032eba51!2z5ZiJ576p57ij5biD6KKL6Y6u5Lit5bGx6Lev5biD6KKL5ryB5riv6a2a5biC5aC0!3m2!1d23.379479!2d120.155564!4m5!1s0x346c282d1d84c23d%3A0x4eff3d0768a027da!2z5ZiJ576p57ij5biD6KKL6Y6u5paw6KW_6Lev6auY6Lef6Z6L5pWZ5aCC!3m2!1d23.3777863!2d120.1487636!4m5!1s0x346c2923df8dab37%3A0xe9f4ee187e4e4a8b!2z56u55aSV5buj5aC0IDYyNeWYiee-qee4o-W4g-iii-mOruW4g-iii-a4r-a4r-WLmeWkp-aok-WJjQ!3m2!1d23.3793948!2d120.14704479999999!4m5!1s0x346c282eedea23bb%3A0x21904fffbf949822!2z5ZiJ576p57ij5biD6KKL6Y6u5biD6KKL5bCP56K65bm45rW354GY!3m2!1d23.3846214!2d120.15107529999999!5e0!3m2!1szh-TW!2stw!4v1673168967068!5m2!1szh-TW!2stw";
+            }
+        }
+
+    </SCRIPT>
+</head>
+
+<body>
+    <div class="menu">
+        <a class="menuimg" href="布袋旅遊趣.html"><img src="anchor.png"></a>
+        <a class="menutitle" href="布袋旅遊趣.html">布袋旅遊趣-自訂義半日行程</a>
+        <a class="sel">影片</a>
+        <a class="sel" href="公家機關.html">公家機關/診所</a>
+        <a class="sel" href="https://www.cwb.gov.tw/V8/C/L/Port/Port.html?PID=H007" target="_blank">天氣</a>
+        <a class="sel"
+            href="https://damon624.pixnet.net/blog/post/48426472-%E5%98%89%E7%BE%A9%E5%B8%83%E8%A2%8B%E7%BE%8E%E9%A3%9F%EF%BC%81%E8%92%9C%E9%A6%99%E5%A4%A7%E8%9B%A4%E8%A0%A3%E3%80%81%E8%9A%B5%E5%97%B2%E3%80%81%E8%9A%B5%E6%8D%B2%E3%80%81%E7%B4%85"
+            target="_blank">美食</a>
+    </div>
+    <img class="cat" src="導遊1.png">
+
+    <div class="recommend">
+        <div class="trip">
+
+            自訂義半日行程(請勾選2個行程)</br></br>
+            好美里3D彩繪村</br>
+            布袋港漁市</br>
+            高跟鞋教堂</br>
+            <form name="form" method="post">
+                <input type="CHECKBOX" name="sample1" onClick="doCheck(this)" value="1">布袋濕地生態園區</br>
+                <input type="CHECKBOX" name="sample2" onClick="doCheck(this)" value="2">布袋鹽山</br>
+                <input type="CHECKBOX" name="sample3" onClick="doCheck(this)" value="3">洲南鹽場</br>
+                <input type="CHECKBOX" name="sample4" onClick="doCheck(this)" value="4">五四三故事館</br>
+                <input type="CHECKBOX" name="sample5" onClick="doCheck(this)" value="5">武聖宮</br>
+                <input type="CHECKBOX" name="sample6" onClick="doCheck(this)" value="6">竹夕廣場</br>
+                <input type="CHECKBOX" name="sample7" onClick="doCheck(this)" value="7">小確幸海灘
+            </form>
+        </div>
+        <iframe class='google' id="google2"
+            src="https://www.google.com/maps/embed?pb=!1m76!1m12!1m3!1d58033.94207676768!2d120.13012941198866!3d23.361184177810664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m61!3e0!4m5!1s0x346c29ed42b4e0f5%3A0xe8631defe690ed3f!2z5aW9576O6YeMM0TmtbfmtIvkuJbnlYzmiLblpJbnvo7ooZPppKg!3m2!1d23.3366445!2d120.1377206!4m5!1s0x346e826624b5faa3%3A0xdfecd51716a4e63!2z5biD6KKL5r-V5Zyw55Sf5oWL5ZyS5Y2A!3m2!1d23.362430699999997!2d120.17787919999999!4m5!1s0x346e8298ee08d2ab%3A0x8aef8cd9d34f1c45!2z5ZiJ576p57ij5biD6KKL6Y6u5biD6KKL6bm95bGx!3m2!1d23.3814544!2d120.16863169999999!4m5!1s0x346e829a804cff93%3A0x85f9cca6c625673f!2z5rSy5Y2X6bm95aC0!3m2!1d23.3839298!2d120.1673704!4m5!1s0x346c29c626db1b63%3A0xab8748af72e41b63!2z5biD6KKL5LqU5Zub5LiJIOW4g-iii-Wwj-mOruWxleekuuaJgA!3m2!1d23.3778397!2d120.15683109999999!4m5!1s0x346c282ba9bbdd97%3A0x4cb1ad2d032eba51!2z5biD6KKL5riv5ryB5biC!3m2!1d23.379479!2d120.155564!4m5!1s0x346c282d21df222d%3A0x97066f9497d60c52!2z5biD6KKL5q2m6IGW5a6u!3m2!1d23.379578!2d120.1499279!4m5!1s0x346c282d1d84c23d%3A0x4eff3d0768a027da!2z6auY6Lef6Z6L5pWZ5aCC!3m2!1d23.3777863!2d120.1487636!4m5!1s0x346c2923df8dab37%3A0xe9f4ee187e4e4a8b!2z56u55aSV5buj5aC0!3m2!1d23.3793948!2d120.14704479999999!4m5!1s0x346c282eedea23bb%3A0x21904fffbf949822!2z5biD6KKL5bCP56K65bm45rW354GYIDYyNeWYiee-qee4o-W4g-iii-mOrg!3m2!1d23.3846214!2d120.15107529999999!5e0!3m2!1szh-TW!2stw!4v1673161625693!5m2!1szh-TW!2stw"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</body>
+
+</html>

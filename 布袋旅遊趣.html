@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布袋旅遊趣</title>
+    <link rel="icon" href="anchor.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+    <style>
+        @font-face {
+            font-family: 'setofont';
+            src: url('setofont.ttf') format("truetype");
+        }
+
+        body {
+            background-image: url("網設背景.jpg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            background-color: #464646;
+        }
+
+        .menu {
+            width: 100%;
+            height: 50px;
+            position: relative;
+            background-color: white;
+        }
+
+        .menuimg img {
+            margin-left: 5px;
+            padding: 0px 2px;
+            float: left;
+            height: 45px;
+        }
+
+        .menutitle {
+            margin-left: 2px;
+            padding: 5px 2px;
+            font-size: 35px;
+            font-family: "setofont";
+            color: black;
+            float: left;
+            text-decoration: none;
+        }
+        .cat {
+            position: absolute;
+            width: 30%;
+            bottom: 0px;
+            right: 0px;
+            z-index:2;
+        }
+
+        .cat img:first-child{
+            position: absolute;
+            visibility: hidden;
+        }
+
+        .cat:hover img:last-child {
+            visibility: hidden;
+        }
+        .cat:hover img:first-child {
+            visibility: visible;
+        }
+
+        .cat:hover+.talk{
+            visibility:visible;
+        }
+
+        .talk {
+            font-family: "setofont";
+            font-size: 33px;
+            position: absolute;
+            width: 30%;
+            bottom: 0px;
+            left: 5%;
+            visibility:hidden;
+            z-index:1;
+        }
+
+        .ta{
+            position:absolute;
+            top:20%;
+            left:15%;
+        }
+        .sel {
+            margin: 0px 7px;
+            padding: 5px 2px;
+            font-size: 35px;
+            font-family: "setofont";
+            color: black;
+            float: right;
+            text-decoration: none;
+        }
+
+        .sel:hover {
+            transform: scale(1.1);
+        }
+        .好美 {
+            transform-origin: 50% 100%;
+            position: absolute;
+            width: 36px;
+            top: 75%;
+            left: 40%;
+        }
+
+        .好美:hover {
+            transform: scale(1.5);
+        }
+
+        .濕地 {
+            transform-origin: 50% 100%;
+            position: absolute;
+            width: 36px;
+            top: 45%;
+            left: 65%;
+        }
+
+        .濕地:hover {
+            transform: scale(1.5);
+        }
+
+        .鹽山 {
+            transform-origin: 50% 100%;
+            position: absolute;
+            width: 36px;
+            top: 22%;
+            left: 67%;
+        }
+
+        .鹽山:hover {
+            transform: scale(1.5);
+        }
+
+        .洲南 {
+            transform-origin: 50% 100%;
+            position: absolute;
+            width: 36px;
+            top: 15%;
+            left: 63%;
+        }
+
+        .洲南:hover {
+            transform: scale(1.5);
+        }
+
+        .五四三 {
+            transform-origin: 50% 100%;
+            position: absolute;
+            width: 36px;
+            top: 25%;
+            left: 60%;
+        }
+
+        .五四三:hover {
+            transform: scale(1.5);
+        }
+
+        .魚市 {
+            transform-origin: 50% 100%;
+            position: absolute;
+            width: 36px;
+            top: 23.7%;
+            left: 54.5%;
+        }
+
+        .魚市:hover {
+            transform: scale(1.5);
+        }
+
+        .武聖 {
+            transform-origin: 50% 100%;
+            position: absolute;
+            width: 36px;
+            top: 22%;
+            left: 53%;
+        }
+
+        .武聖:hover {
+            transform: scale(1.5);
+        }
+
+        .小確幸 {
+            transform-origin: 50% 100%;
+            position: absolute;
+            width: 36px;
+            top: 20%;
+            left: 51%;
+        }
+
+        .小確幸:hover {
+            transform: scale(1.5);
+        }
+
+        .高跟鞋 {
+            transform-origin: 50% 100%;
+            position: absolute;
+            width: 36px;
+            top: 26%;
+            left: 50%;
+        }
+
+        .高跟鞋:hover {
+            transform: scale(1.5);
+        }
+
+        .竹夕 {
+            transform-origin: 50% 100%;
+            position: absolute;
+            width: 36px;
+            top: 22%;
+            left: 48%;
+        }
+
+        .竹夕:hover {
+            transform: scale(1.5);
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="menu">
+        <a class="menuimg" href="布袋旅遊趣.html"><img src="anchor.png"></a>
+        <a class="menutitle" href="布袋旅遊趣.html">布袋旅遊趣</a>
+        <a class="sel">影片</a>
+        <a class="sel" href="公家機關.html">公家機關/診所</a>
+        <a class="sel" href="https://www.cwb.gov.tw/V8/C/L/Port/Port.html?PID=H007" target="_blank">天氣</a>
+    </div>
+
+    <div class="cat">
+        <img src="導遊2.png">
+        <img src="導遊1.png">
+    </div>
+    <div class="talk">
+
+        <div  class='ta'>你好</div>
+        <img src="對話框.png">
+    </div>
+    <img class="好美" src="位置.png" title="好美里3D彩繪村">
+    <img class="濕地" src="位置.png" title="布袋濕地生態園區">
+    <img class="鹽山" src="位置.png" title="布袋鹽山">
+    <img class="洲南" src="位置.png" title="洲南鹽場">
+    <img class="五四三" src="位置.png" title="五四三故事館">
+    <img class="魚市" src="位置.png" title="布袋港漁市">
+    <img class="武聖" src="位置.png" title="武聖宮">
+    <img class="小確幸" src="位置.png" title="小確幸海灘">
+    <img class="高跟鞋" src="位置.png" title="高跟鞋教堂">
+    <img class="竹夕" src="位置.png" title="竹夕廣場">
+
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布袋旅遊趣</title>
+    <link rel="icon" href="anchor.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+    <style>
+        @font-face {
+            font-family: 'setofont';
+            src: url('setofont.ttf') format("truetype");
+        }
+
+        body {
+            background-image: url("網設背景.jpg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            background-color: #464646;
+        }
+
+        .menu {
+            width: 100%;
+            height: 50px;
+            position: relative;
+            background-color: white;
+        }
+
+        .menuimg img {
+            margin-left: 5px;
+            padding: 0px 2px;
+            float: left;
+            height: 45px;
+        }
+
+        .menutitle {
+            margin-left: 2px;
+            padding: 5px 2px;
+            font-size: 35px;
+            font-family: "setofont";
+            color: black;
+            float: left;
+            text-decoration: none;
+        }
+
+        .sel {
+            margin: 0px 7px;
+            padding: 5px 2px;
+            font-size: 35px;
+            font-family: "setofont";
+            color: black;
+            float: right;
+            text-decoration: none;
+        }
+
+        .sel:hover {
+            transform: scale(1.1);
+        }
+
+        .cat {
+            position: absolute;
+            width: 20%;
+            bottom: 0px;
+            right: 0px;
+        }
+
+        .recommend {
+            margin: 30px;
+            position: absolute;
+            width: 75%;
+            height: 80%;
+            background-color: aliceblue;
+            overflow: auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        .google {
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            height: 100%;
+        }
+
+        .trip {
+            font-size: 35px;
+            font-family: "setofont";
+            position: absolute;
+            left: 20px;
+            top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <a class="menuimg" href="布袋旅遊趣.html"><img src="anchor.png"></a>
+        <a class="menutitle" href="布袋旅遊趣.html">布袋旅遊趣-一日遊</a>
+        <a class="sel">影片</a>
+        <a class="sel" href="公家機關.html">公家機關/診所</a>
+        <a class="sel" href="https://www.cwb.gov.tw/V8/C/L/Port/Port.html?PID=H007" target="_blank">天氣</a>
+        <a class="sel"
+            href="https://damon624.pixnet.net/blog/post/48426472-%E5%98%89%E7%BE%A9%E5%B8%83%E8%A2%8B%E7%BE%8E%E9%A3%9F%EF%BC%81%E8%92%9C%E9%A6%99%E5%A4%A7%E8%9B%A4%E8%A0%A3%E3%80%81%E8%9A%B5%E5%97%B2%E3%80%81%E8%9A%B5%E6%8D%B2%E3%80%81%E7%B4%85"
+            target="_blank">美食</a>
+    </div>
+    <img class="cat" src="導遊1.png">
+
+    <div class="recommend">
+        <div class="trip">
+            一日遊推薦行程</br></br>
+            好美里3D彩繪村→</br>
+            布袋濕地生態園區→</br>
+            布袋鹽山→</br>
+            洲南鹽場→</br>
+            五四三故事館→</br>
+            布袋港漁市→</br>
+            武聖宮→</br>
+            高跟鞋教堂→</br>
+            竹夕廣場→</br>
+            小確幸海灘
+        </div>
+        <iframe class='google'
+            src="https://www.google.com/maps/embed?pb=!1m76!1m12!1m3!1d58033.94207676768!2d120.13012941198866!3d23.361184177810664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m61!3e0!4m5!1s0x346c29ed42b4e0f5%3A0xe8631defe690ed3f!2z5aW9576O6YeMM0TmtbfmtIvkuJbnlYzmiLblpJbnvo7ooZPppKg!3m2!1d23.3366445!2d120.1377206!4m5!1s0x346e826624b5faa3%3A0xdfecd51716a4e63!2z5biD6KKL5r-V5Zyw55Sf5oWL5ZyS5Y2A!3m2!1d23.362430699999997!2d120.17787919999999!4m5!1s0x346e8298ee08d2ab%3A0x8aef8cd9d34f1c45!2z5ZiJ576p57ij5biD6KKL6Y6u5biD6KKL6bm95bGx!3m2!1d23.3814544!2d120.16863169999999!4m5!1s0x346e829a804cff93%3A0x85f9cca6c625673f!2z5rSy5Y2X6bm95aC0!3m2!1d23.3839298!2d120.1673704!4m5!1s0x346c29c626db1b63%3A0xab8748af72e41b63!2z5biD6KKL5LqU5Zub5LiJIOW4g-iii-Wwj-mOruWxleekuuaJgA!3m2!1d23.3778397!2d120.15683109999999!4m5!1s0x346c282ba9bbdd97%3A0x4cb1ad2d032eba51!2z5biD6KKL5riv5ryB5biC!3m2!1d23.379479!2d120.155564!4m5!1s0x346c282d21df222d%3A0x97066f9497d60c52!2z5biD6KKL5q2m6IGW5a6u!3m2!1d23.379578!2d120.1499279!4m5!1s0x346c282d1d84c23d%3A0x4eff3d0768a027da!2z6auY6Lef6Z6L5pWZ5aCC!3m2!1d23.3777863!2d120.1487636!4m5!1s0x346c2923df8dab37%3A0xe9f4ee187e4e4a8b!2z56u55aSV5buj5aC0!3m2!1d23.3793948!2d120.14704479999999!4m5!1s0x346c282eedea23bb%3A0x21904fffbf949822!2z5biD6KKL5bCP56K65bm45rW354GYIDYyNeWYiee-qee4o-W4g-iii-mOrg!3m2!1d23.3846214!2d120.15107529999999!5e0!3m2!1szh-TW!2stw!4v1673161625693!5m2!1szh-TW!2stw"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</body>
+
+</html>
